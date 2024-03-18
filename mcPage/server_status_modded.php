@@ -1,0 +1,89 @@
+﻿
+<?php
+	use xPaw\MinecraftPing;
+	use xPaw\MinecraftPingException;
+
+	require __DIR__ . '/src/MinecraftPing.php';
+	require __DIR__ . '/src/MinecraftPingException.php';
+
+	$InfoM = false;
+	$ModdedS = null;
+
+	try
+	{
+		$ModdedS = new MinecraftPing( 'mc.skui.co.uk', 25565, 1 );
+
+		$InfoM = $ModdedS->Query( );
+
+		if( $InfoM === false )
+		{
+
+			$ModdedS->Close( );
+			$ModdedS->Connect( );
+
+			$InfoM = $ModdedS->QueryOldPre17( );
+		}
+	}
+	catch( MinecraftPingException $e )
+	{
+		$Exception = $e;
+	}
+	if( $ModdedS !== null )
+	{
+		$ModdedS->Close( );
+	}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<article style="background-color: rgb(195, 177, 225); padding: 1em; " class="post">
+        	<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); text-align: center; grid-gap: 1rem; margin:15px 0">
+                	<div style="display: flex; flex-direction: column; height: 100%; justify-content: center; align-items: center;"><img height=auto width="200" style="vertical-align:middle;" src="assets/cute_mc_icon.png"></div>
+                        	<div style="grid-column-start: 2; grid-column-end: 4; display: flex; flex-direction: column; height: 100%; justify-content: center;">
+                                <a>
+                                    <h1 style="margin-top: 0;">The Modded Server</h1>
+                                </a>
+                                <div class="post-elsewhere">
+                                    <p style="text-align: center;">
+                                        <?php
+                                            $Status = 'Offline'. " &#10060;";
+                                            if ($InfoM != false)
+                                            {
+                                                $Status = 'Online'." &#9989;";
+                                            }
+                                            print_r("Status: " . $Status); 
+                                        ?>
+                                    </p>
+                                    <p style="text-align: center;">
+                                        <?php
+                                            if ($InfoM != false)
+                                            {
+                                                print_r("Players: " . $InfoM['players']['online'] . "/" . $InfoM['players']['max']);
+                                            }
+                                        ?>
+                                    </p>
+                                    <p style="tex-align: center;">
+                                        <?php
+                                            if ($InfoM != false)
+                                            {
+                                                print_r("Version: " . $InfoM['version']['name']);
+                                            }
+                                        ?>
+                                    </p>
+				    <p style="tex-align: center;">
+                                        <?php
+                                            if ($InfoM != false)
+                                            {
+                                                print_r("IP: mc.skui.co.uk");
+                                            }
+                                        ?>
+                                    </p>
+                        	</div>
+                	</div>
+        	</div>
+	</article>
+</body>
+</html>
