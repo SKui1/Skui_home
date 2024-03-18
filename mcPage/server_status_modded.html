@@ -13,18 +13,24 @@
                                     <h1 style="margin-top: 0;">The Modded Server</h1>
                                 </a>
                                 <div class="post-elsewhere">
-                                    <p style="text-align: center;">
+                                    <p style="text-align: center;" id="status_info">
                                         status
                                     </p>
-                                    <p style="text-align: center;">
+                                    <p style="text-align: center;" id="player_info">
                                         player number
                                     </p>
-                                    <p style="tex-align: center;">
+                                    <p style="tex-align: center;" id="version_info">
                                         version info
                                     </p>
 				                    <p style="tex-align: center;">
                                         IP: mc.skui.co.uk
                                     </p>
+                                    <script data-main="mcping-js/lib/ping" src="require.js">
+                                        // 25565 is the default Minecraft Java Edition multiplayer server port
+                                        // The port may be omitted and will default to 25565
+                                        const server = new mcping.MinecraftServer('mc.skui.co.uk')
+                                        server.ping(50, 758, (err, res) => {document.getElementById("status_info").innerHTML = res;})
+                                    </script>
                         	    </div>
                 	        </div>
             </div>
