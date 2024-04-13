@@ -38,6 +38,8 @@
 
 			console.log('Video API is loaded');
 
+			console.log(player.getPlayerState());
+
 			player.addEventListener("onReady", "onPlayerReady");
 			player.addEventListener("onStateChange", "onPlayerStateChange");
 
