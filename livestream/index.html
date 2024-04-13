@@ -12,14 +12,19 @@
 		function onPlayerReady (event)
 		{
 			console.log("Hello :" + event);
-			document.getElementById('ytplayer').style.display='none';
+			document.getElementById('ytplayer').style.display = 'none';
 		}
 
 		function onPlayerStateChange (event)
 		{
 			console.log("hi");
-			if (event.data == YT.PlayerState.CUED) {
+			if (event.data == YT.PlayerState.CUED) 
+			{
 				document.getElementById('ytplayer').style.display = 'initial';
+			}
+			if (event.data == YT.PlayerState.UNSTARTED)
+			{
+				document.getElementById('ytplayer').style.display = 'none';
 			}
 		}
 		function onYouTubeIframeAPIReady() {
