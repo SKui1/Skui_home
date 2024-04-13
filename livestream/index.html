@@ -5,8 +5,10 @@
 	<script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
-	<iframe id="myYTPlayer" width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=UC_UsENn7_h6ayOLIRdHs2jg&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
-	<template><div>UC_UsENn7_h6ayOLIRdHs2jg</div></template>
+	<div>
+		<iframe id="myYTPlayer" width="560" height="315" src="https://www.youtube.com/embed/live_stream?channel=UC_UsENn7_h6ayOLIRdHs2jg&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+		<img id="noStream" src="Stream%20Error.png" alt="No Stream">
+	</div>
 	<script>
 		var player;
 		function onPlayerReady (event)
@@ -15,6 +17,7 @@
 			if (player.getPlayerState() == 5)
 			{
 				document.getElementById('myYTPlayer').style.display = 'initial';
+				document.getElementById('noStream').style.display = 'none';
 			}
 		}
 		function onYouTubeIframeAPIReady() {
