@@ -624,3 +624,7 @@ code {
     font-family: 'Bitstream Vera Sans Mono','Courier', monospace;
     color: #d8d8d8;
 }
+
+dd {
+    font-size: 15px;
+}
