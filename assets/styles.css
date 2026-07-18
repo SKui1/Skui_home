@@ -99,9 +99,8 @@ table {
     box-sizing: border-box;
 }
 
-/**************/
-/* BASE RULES */
-/**************/
+/*********/
+
 html {
     font-size: 100%;
     height: 100%;
