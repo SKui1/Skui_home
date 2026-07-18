@@ -40,7 +40,8 @@
  * {
      font-size:20px;
      line-height:200%;
-     color: #191A42;
+     color: #8e8e8e;
+     text-shadow: #ffffff90 0px 0px 5px;
      font-family:opendyslexic !important;
  }
  
@@ -71,7 +72,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 article {
-    background: #002aa6; 
+    background: #47187a; 
     padding: 1em; 
 }
 
@@ -393,7 +394,7 @@ p > img {
 
 .site-name {
     margin: -10px 0 0 0;
-    color: black;
+    color: #cd38fe;
     cursor: pointer;
     font-family: OpenDyslexic3;
     font-weight: bold;
@@ -439,7 +440,7 @@ nav {
 
 nav a {
     margin-left: 20px;
-    color: #333;
+    color: #8e8e8e;
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
